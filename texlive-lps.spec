@@ -1,3 +1,9 @@
+# revision 21322
+# category Package
+# catalog-ctan /macros/latex/contrib/lps
+# catalog-date 2011-02-03 16:11:01 +0100
+# catalog-license lppl
+# catalog-version 0.7
 Name:		texlive-lps
 Version:	0.7
 Release:	1
@@ -46,6 +52,7 @@ LaTeX authors may use when submitting to the journal.
 #- source
 %doc %{_texmfdistdir}/source/latex/lps/lps.dtx
 %doc %{_texmfdistdir}/source/latex/lps/lps.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -56,3 +63,5 @@ LaTeX authors may use when submitting to the journal.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
