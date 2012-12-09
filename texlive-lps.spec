@@ -52,3 +52,17 @@ LaTeX authors may use when submitting to the journal.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+
+
+%changelog
+* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 0.7-2
++ Revision: 753459
+- Rebuild to reduce used resources
+
+* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 0.7-1
++ Revision: 718882
+- texlive-lps
+- texlive-lps
+- texlive-lps
+- texlive-lps
+
