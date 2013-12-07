@@ -6,7 +6,7 @@
 # catalog-version 0.7
 Name:		texlive-lps
 Version:	0.7
-Release:	3
+Release:	4
 Summary:	Class for "Logic and Philosophy of Science"
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/lps
