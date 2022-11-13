@@ -1,19 +1,13 @@
-# revision 21322
-# category Package
-# catalog-ctan /macros/latex/contrib/lps
-# catalog-date 2011-02-03 16:11:01 +0100
-# catalog-license lppl
-# catalog-version 0.7
 Name:		texlive-lps
-Version:	0.7
-Release:	11
+Version:	21322
+Release:	1
 Summary:	Class for "Logic and Philosophy of Science"
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/lps
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/lps.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/lps.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/lps.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/lps.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/lps.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/lps.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -26,12 +20,12 @@ builds on the standard article class to offer a format that
 LaTeX authors may use when submitting to the journal.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -45,24 +39,11 @@ LaTeX authors may use when submitting to the journal.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 0.7-2
-+ Revision: 753459
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 0.7-1
-+ Revision: 718882
-- texlive-lps
-- texlive-lps
-- texlive-lps
-- texlive-lps
-
