@@ -3,7 +3,7 @@ Version:	21322
 Release:	2
 Summary:	Class for "Logic and Philosophy of Science"
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/lps
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/lps
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/lps.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/lps.doc.r%{version}.tar.xz
