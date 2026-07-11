@@ -1,49 +1,24 @@
-Name:		texlive-lps
-Version:	21322
-Release:	2
-Summary:	Class for "Logic and Philosophy of Science"
+%global tl_name lps
+%global tl_revision 21322
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.7
+Release:	%{tl_revision}.1
+Summary:	Class for Logic and Philosophy of Science
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/lps
-License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/lps.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/lps.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/lps.source.r%{version}.tar.xz
+License:	lppl
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/lps.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/lps.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/lps.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The 'Logic and Philosophy of Science' journal is an online
-publication of the University of Trieste (Italy). The class
-builds on the standard article class to offer a format that
-LaTeX authors may use when submitting to the journal.
+The 'Logic and Philosophy of Science' journal is an online publication
+of the University of Trieste (Italy). The class builds on the standard
+article class to offer a format that LaTeX authors may use when
+submitting to the journal.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/lps/lps.cls
-%doc %{_texmfdistdir}/doc/latex/lps/README
-%doc %{_texmfdistdir}/doc/latex/lps/lps.pdf
-%doc %{_texmfdistdir}/doc/latex/lps/lpstemplate.tex
-#- source
-%doc %{_texmfdistdir}/source/latex/lps/lps.dtx
-%doc %{_texmfdistdir}/source/latex/lps/lps.ins
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
